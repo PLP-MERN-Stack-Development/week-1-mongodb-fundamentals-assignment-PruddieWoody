@@ -1,47 +1,71 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19961239&assignment_repo_type=AssignmentRepo)
-# MongoDB Fundamentals Assignment
+# PLP Bookstore MongoDB Scripts
 
-This assignment focuses on learning MongoDB fundamentals including setup, CRUD operations, advanced queries, aggregation pipelines, and indexing.
+This project contains a set of scripts and queries to help you set up and interact with a MongoDB database for a bookstore application.
 
-## Assignment Overview
+## Prerequisites
 
-You will:
-1. Set up a MongoDB database
-2. Perform basic CRUD operations
-3. Write advanced queries with filtering, projection, and sorting
-4. Create aggregation pipelines for data analysis
-5. Implement indexing for performance optimization
+- [MongoDB](https://www.mongodb.com/try/download/community) installed and running on your system.
+- MongoDB shell (`mongo`) or [MongoDB Compass](https://www.mongodb.com/products/compass) for GUI-based interaction.
 
 ## Getting Started
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+### 1. Create the Database and Collection
 
-## Files Included
+Open your MongoDB shell and run:
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+```shell
+use plp_bookstore
+db.createCollection("books")
+```
 
-## Requirements
+> Note: The collection will be automatically created if you insert documents into it, so this step is optional.
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
+### 2. Insert Sample Books
 
-## Submission
+Run the provided `insert_books.js` script to insert sample book documents.
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+#### Using the MongoDB shell:
 
-1. Complete all tasks in the assignment
-2. Add your `queries.js` file with all required MongoDB queries
-3. Include a screenshot of your MongoDB database
-4. Update the README.md with your specific setup instructions
+```shell
+mongo plp_bookstore insert_books.js
+```
 
-## Resources
+This will populate the `books` collection with initial data.
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+### 3. Running Queries
+
+You can run the example queries by copying them into your MongoDB shell while connected to the `plp_bookstore` database.
+
+For example, to find all books in the 'Technology' genre:
+
+```shell
+use plp_bookstore
+db.books.find({ genre: "Technology" })
+```
+
+Refer to the example queries in the documentation or scripts for more CRUD and advanced operations.
+
+### 4. Aggregation, Sorting, Pagination, and Indexing
+
+- Aggregation pipelines, sorting, projection, pagination, and indexing queries are also provided in the scripts or documentation.
+- Copy and paste the relevant queries into your MongoDB shell as needed.
+
+## File List
+
+- `insert_books.js` — Script to populate the `books` collection with sample data.
+- `README.md` — This file, with setup and usage instructions.
+
+## Useful Commands
+
+- Start MongoDB shell: `mongo`
+- Switch database: `use plp_bookstore`
+- Run a script: `mongo plp_bookstore insert_books.js`
+- List collections: `show collections`
+- View documents: `db.books.find().pretty()`
+
+## Support
+
+If you have issues running any script, ensure your MongoDB server is running and that you are in the correct directory with the scripts.
+
+---
+Happy coding!
